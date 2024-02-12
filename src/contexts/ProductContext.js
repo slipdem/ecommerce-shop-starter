@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const ProductContext = createContext();
 
-const ProductProvider = ({ chidren }) => {
+const ProductProvider = ({ children }) => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
@@ -16,7 +16,7 @@ const ProductProvider = ({ chidren }) => {
 
 	return (
 		<ProductContext.Provider value={{ products }}>
-			{chidren}
+			{children}
 		</ProductContext.Provider>
 	);
 };
