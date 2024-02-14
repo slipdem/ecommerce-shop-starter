@@ -27,7 +27,6 @@ const CartProvider = ({ children }) => {
 			setCart([...cart, newItem]);
 		}
 	};
-	console.log(cart);
 
 	return (
 		<CartContext.Provider value={{ cart, addToCart }}>
