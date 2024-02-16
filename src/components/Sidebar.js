@@ -8,12 +8,12 @@ import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
 	const { isOpen, handleClose } = useContext(SidebarContext);
-	const { cart, clearCart } = useContext(CartContext);
+	const { cart, clearCart, total } = useContext(CartContext);
 	return (
 		<aside
 			className={`${
 				isOpen ? 'right-0' : '-right-full'
-			} w-full bg-white fixed top-0 h-full shadow-2xl md:2-[35vw] xl:max-w-[30vw] transition-all duartuin-300 z-20 px-4 lg:px-[35px] overflow-auto`}>
+			} w-full bg-white fixed top-0 h-full shadow-2xl md:2-[35vw] xl:max-w-[30vw] transition-all duartuin-300 z-20 px-4 lg:px-[35px]`}>
 			<div className='flex items-center justify-between py-6 border-b'>
 				<div className='uppercase text-sm font-semibold'>
 					Shoping Bag ({cart.length})
@@ -24,7 +24,7 @@ const Sidebar = () => {
 					<IoMdArrowForward className='text-2xl' />
 				</div>
 			</div>
-			<div>
+			<div className='flex flex-col gap-y-2 h-[520px] lg:h-[640] overflow-y-auto overflow-x-hidden border-b'>
 				{cart.map((item) => {
 					return (
 						<CartItem
@@ -38,7 +38,8 @@ const Sidebar = () => {
 				<div className='flex w-full justify-between items-center'>
 					{/* total */}
 					<div className='uppercase font-semibold'>
-						<span className='mr-2'>Total: </span>$ 1000
+						<span className='mr-2'>Total: </span>${' '}
+						{parseFloat(total).toFixed(2)}
 					</div>
 					{/* clear cart icon */}
 					<div
