@@ -14,14 +14,13 @@ const Header = () => {
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
 			window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
-			// console.log(window.scrollY);
 		});
 	});
 
 	return (
 		<header
 			className={`${
-				isActive ? 'bg-white py-4 shadow-md' : 'bg-none py-6'
+				isActive ? 'bg-white p-4 shadow-md' : 'bg-none p-6'
 			} fixed w-full z-10 transition-all`}>
 			<div className='container mx-auto flex items-center justify-between h-full '>
 				<Link to={'/'}>

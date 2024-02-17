@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 	const { isOpen, handleClose } = useContext(SidebarContext);
-	const { cart, clearCart, total } = useContext(CartContext);
+	const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 	return (
 		<aside
 			className={`${
@@ -16,7 +16,7 @@ const Sidebar = () => {
 			} w-full bg-white fixed top-0 h-full shadow-2xl md:2-[35vw] xl:max-w-[30vw] transition-all duartuin-300 z-20 px-4 lg:px-[35px]`}>
 			<div className='flex items-center justify-between py-6 border-b'>
 				<div className='uppercase text-sm font-semibold'>
-					Shoping Bag ({cart.length})
+					Shoping Bag ({itemAmount})
 				</div>
 				<div
 					onClick={handleClose}
@@ -24,7 +24,7 @@ const Sidebar = () => {
 					<IoMdArrowForward className='text-2xl' />
 				</div>
 			</div>
-			<div className='flex flex-col gap-y-2 h-[520px] lg:h-[640] overflow-y-auto overflow-x-hidden border-b'>
+			<div className='flex flex-col gap-y-2 h-[calc(100%-316px)] lg:h-[calc(640px-216px)] overflow-y-auto overflow-x-hidden border-b'>
 				{cart.map((item) => {
 					return (
 						<CartItem
